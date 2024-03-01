@@ -1,8 +1,12 @@
 <script>
 import { store } from '../store.js';
 import axios from 'axios';
+import ProjectCard from './ProjectCard.vue';
 export default {
     name: 'AppMain',
+    components: {
+        ProjectCard
+    },
     data() {
         return {
             store,
@@ -16,16 +20,19 @@ export default {
         getProjects() {
             axios.get(`${this.store.baseUrl}/api/projects`).then((response) => {
                 this.projects = response.data.results;
-                console.log(this.projects);
             })
         }
     },
 }
 </script>
 <template lang="">
-    <div>
-        
-    </div>
+    <main>
+        <div class="container">
+            <div class="row">
+                <ProjectCard v-for="project, index in projects" :key="index" :project="project"/>
+            </div>
+        </div>
+    </main>
 </template>
 <style lang="">
     
