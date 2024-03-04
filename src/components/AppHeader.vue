@@ -20,7 +20,7 @@ export default {
                 <div class="col-8">
                     <div class="float-end">
                         <ul class="list-unstyled d-flex align-items-center ">
-                            <li v-for="(item, index) in store.menuItems" :key="index" class="me-2">
+                            <li v-for="(item, index) in store.menuItems" :key="index" class="me-3 text-uppercase ">
                                 <router-link :to="{name: item.name}" class="nav-link">
                                     {{item.label}}
                                 </router-link>
