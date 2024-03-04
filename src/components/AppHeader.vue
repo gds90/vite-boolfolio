@@ -12,7 +12,7 @@ export default {
 <template lang="">
     <header>
         <div class="container">
-            <div class="row">
+            <div class="row pt-1">
                 <div class="col-4">
                     <a href="/" class="text-decoration-none text-danger
                     "><h4>BoolFoglio</h4></a>

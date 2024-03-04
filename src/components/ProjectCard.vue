@@ -28,8 +28,8 @@ export default {
 }
 </script>
 <template lang="">
-<div class="col-4">
-    <div class="card my-3 shadow">
+<div class="col-4 my-4">
+    <div class="card shadow h-100 ">
         <img class="rounded-top-1":src="getUrlImage()">
         <div class="card-body ">
             <h5 class="card-title text-center my-2">{{project.title}}</h5>
