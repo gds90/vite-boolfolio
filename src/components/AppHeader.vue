@@ -1,24 +1,29 @@
+<script>
+import { store } from '../store.js';
+export default {
+    name: 'AppHeader',
+    data() {
+        return {
+            store
+        }
+    }
+}
+</script>
 <template lang="">
     <header>
         <div class="container">
             <div class="row">
                 <div class="col-4">
-                    <h4>BoolFoglio</h4>
+                    <a href="/" class="text-decoration-none text-danger
+                    "><h4>BoolFoglio</h4></a>
                 </div>
                 <div class="col-8">
                     <div class="float-end">
-                        <ul class="list-unstyled d-flex">
-                            <li class="mx-3">
-                                <a href="#">Home</a>
-                            </li>
-                            <li class="mx-3">
-                                <a href="#">Progetti</a>
-                            </li>
-                            <li class="mx-3">
-                                <a href="#">Tecnologie</a>
-                            </li>
-                            <li class="mx-3">
-                                <a href="#">Contatti</a>
+                        <ul class="list-unstyled d-flex align-items-center ">
+                            <li v-for="(item, index) in store.menuItems" :key="index" class="me-2">
+                                <router-link :to="{name: item.name}" class="nav-link">
+                                    {{item.label}}
+                                </router-link>
                             </li>
                         </ul>
                     </div>
@@ -27,11 +32,6 @@
         </div>
     </header>
 </template>
-<script>
-export default {
-
-}
-</script>
 <style lang="scss">
 header {
     height: 80px;
