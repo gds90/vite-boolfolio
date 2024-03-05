@@ -58,7 +58,8 @@ export default {
 <template lang="">
     <main class="pt-4">
         <div class="container-fluid mt-5 bg-body-secondary p-5">
-            <h1 class="text-center text-uppercase ">Progetti per Tecnologia {{getTechnologyTitleBySlug($route.params.slug)}}</h1>
+            <h6 class="text-center ">Progetti per la tecnologia</h6>
+            <h1 class="text-center text-uppercase ">{{getTechnologyTitleBySlug($route.params.slug)}}</h1>
             <h6 class="text-center text-secondary ">(clicca su un progetto per mostrare i dettagli)</h6>
             <div class="row mt-3">
                 <ProjectCard v-for="project, index in projects" :key="index" :project="project"/>
