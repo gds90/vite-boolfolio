@@ -42,15 +42,19 @@ export default {
 </script>
 <template lang="">
     <main class="pt-4">
+        <!-- Project details -->
         <div class="container-fluid mt-5 bg-body-secondary p-5">
             <div class="row">
+                <!-- Title -->
                 <div class="col-12">
                     <h1 class="text-center text-uppercase ">{{project.title}}</h1>
                 </div>
                 <div class="row my-4">
+                    <!-- Cover image -->
                     <div class="col-5">
                         <img class="project-image w-100 rounded shadow" :src="getUrlImage()">
                     </div>
+                    <!-- Infos -->
                     <div class="col-7 ps-3">
                         <p class="  "><strong>Descrizione:</strong> {{project.description}}</p>
                         <p class="  "><strong>Tipologia progetto:</strong> {{project.type ? project.type.name : 'non specificato'}}</p>
@@ -63,7 +67,7 @@ export default {
                     </div>
                 </div>
                 <div class="text-center">
-                    <!-- Router link a lista Progetti -->
+                    <!-- Router link to Projects list -->
                     <router-link to="/projects" class="btn btn-lg btn-outline-secondary text-uppercase m-4">Torna alla lista dei progetti</router-link>
                 </div>
             </div>

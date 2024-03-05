@@ -46,10 +46,12 @@ export default {
 </script>
 <template lang="">
     <main class="pt-4">
+        <!-- Content  -->
         <div class="container-fluid mt-5 bg-body-secondary p-5">
             <h1 class="text-center text-uppercase ">Tutti i progetti</h1>
             <h6 class="text-center text-secondary ">(clicca su un progetto per mostrare i dettagli)</h6>
             <div class="row">
+                <!-- Technology Router link -->
                 <div class="col-12 mt-4">
                     Mostra progetti per tecnologia: 
                     <router-link :to="{name:'technology-projects', params: {slug: technology.slug}}" v-for="(technology, index) in technologies" :key="index" :class="'badge rounded-pill text-bg-' + getBadgeColor(technology)" class="text-decoration-none ms-1">
@@ -59,10 +61,12 @@ export default {
                     </router-link>
                 </div>
             </div>
+            <!-- Project cards -->
             <div class="row mt-3">
                 <ProjectCard v-for="project, index in projects" :key="index" :project="project"/>
             </div>
             <div class="row">
+                <!-- Pagination -->
                 <div class="col-12 d-flex justify-content-center ">
                     <ul class="pagination my-2">
                         <li>

@@ -57,14 +57,17 @@ export default {
 </script>
 <template lang="">
     <main class="pt-4">
+        <!-- Content -->
         <div class="container-fluid mt-5 bg-body-secondary p-5">
             <h6 class="text-center ">Progetti per la tecnologia</h6>
             <h1 class="text-center text-uppercase ">{{getTechnologyTitleBySlug($route.params.slug)}}</h1>
             <h6 class="text-center text-secondary ">(clicca su un progetto per mostrare i dettagli)</h6>
+            <!-- Project cards -->
             <div class="row mt-3">
                 <ProjectCard v-for="project, index in projects" :key="index" :project="project"/>
             </div>
             <div class="row">
+                <!-- Pagination -->
                 <div class="col-12 d-flex justify-content-center ">
                     <ul class="pagination my-2">
                         <li>
@@ -81,7 +84,7 @@ export default {
                 </div>
             </div>
             <div class="text-center">
-                <!-- Router link a lista Progetti -->
+                <!-- Router link to Projects list -->
                 <router-link to="/projects" class="btn btn-lg btn-outline-secondary text-uppercase m-4">Torna alla lista dei progetti</router-link>
             </div>
         </div>

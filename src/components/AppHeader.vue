@@ -10,13 +10,16 @@ export default {
 }
 </script>
 <template lang="">
+    <!-- Header -->
     <header class="fixed-top ">
         <div class="container">
             <div class="row pt-1">
+                <!-- Left  -->
                 <div class="col-4 logo">
                     <a href="/" class="text-decoration-none text-danger
                     "><img src="/public/img/logo.png" alt="Logo Boolfoglio"></a>
                 </div>
+                <!-- Right  -->
                 <div class="col-8 pt-2">
                     <div class="float-end">
                         <ul class="list-unstyled d-flex align-items-center ">
