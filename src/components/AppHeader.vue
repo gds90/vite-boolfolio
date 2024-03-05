@@ -10,14 +10,14 @@ export default {
 }
 </script>
 <template lang="">
-    <header>
+    <header class="fixed-top ">
         <div class="container">
             <div class="row pt-1">
-                <div class="col-4">
+                <div class="col-4 logo">
                     <a href="/" class="text-decoration-none text-danger
-                    "><h4>BoolFoglio</h4></a>
+                    "><img src="/public/img/logo.png" alt="Logo Boolfoglio"></a>
                 </div>
-                <div class="col-8">
+                <div class="col-8 pt-2">
                     <div class="float-end">
                         <ul class="list-unstyled d-flex align-items-center ">
                             <li v-for="(item, index) in store.menuItems" :key="index" class="me-3 text-uppercase ">
@@ -34,9 +34,16 @@ export default {
 </template>
 <style lang="scss">
 header {
-    height: 80px;
+    height: 90px;
     padding: 20px 0px;
     border-bottom: 2px solid black;
+    background-color: #fff;
+
+    .logo {
+        img {
+            width: 150px;
+        }
+    }
 
     ul {
         li {

@@ -1,2 +1,7 @@
 @import './partials/_variables.scss';
 @import 'node_modules/bootstrap/scss/bootstrap';
+@import "@fontsource/montserrat";
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}

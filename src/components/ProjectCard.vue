@@ -28,7 +28,7 @@ export default {
 }
 </script>
 <template lang="">
-<div class="col-4 my-4">
+<div class="col-md-6 col-lg-4 col-xxl-3 my-4 mx-auto">
     <div class="card shadow h-100 ">
         <img class="rounded-top-1":src="getUrlImage()">
         <div class="card-body ">
