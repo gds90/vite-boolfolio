@@ -27,3 +27,9 @@ Esercizio Base: Realizzare una homepage e la pagina con l'elenco dei progetti. I
 BONUS:
 Gestire la pagina 404 per quelle rotte che non hanno una componente specifica associata
 Buon lavoro!
+
+05/03/24:
+Continuate a lavorare sulla repo dei giorni scorsi e realizzate la pagina di dettaglio dei progetti. Dovete quindi creare una rotta apposita nel file router.js in cui passate il parametro e la relativa componente pagina. Create poi l'endpoint nel file api.php ed il metodo show nel controller.
+Bonus:
+Creare una pagina in cui mostrare le i progetti appartenenti ad una singola categoria.
+Buon lavoro
