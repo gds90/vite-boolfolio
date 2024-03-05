@@ -11,7 +11,7 @@ export default {
 </script>
 <template lang="">
     <!-- Header -->
-    <header class="fixed-top ">
+    <header class="fixed-top shadow">
         <div class="container">
             <div class="row pt-1">
                 <!-- Left  -->
@@ -39,7 +39,6 @@ export default {
 header {
     height: 90px;
     padding: 20px 0px;
-    border-bottom: 2px solid black;
     background-color: #fff;
 
     .logo {
