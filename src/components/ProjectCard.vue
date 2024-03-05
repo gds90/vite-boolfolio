@@ -34,8 +34,8 @@ export default {
         <img class="rounded-top-1":src="getUrlImage()">
         <div class="card-body ">
             <h5 class="card-title text-center my-2">{{project.title}}</h5>
-            <p class="card-text "><strong>Tipologia:</strong> {{project.type ? project.type.name : 'non specificato'}}</p>
-            <p class="card-text"><strong>Tecnologie:</strong>
+            <p v-if="project.TechnologyProjects" class="card-text "><strong>Tipologia:</strong> {{project.type ? project.type.name : 'non specificato'}}</p>
+            <p v-if="project.technologyconsol" class="card-text"><strong>Tecnologie:</strong>
                 <span v-for="(technology, index) in project.technology" :key="index" :class="'badge rounded-pill text-bg-' + getBadgeColor(technology)" class="ms-1">
                     {{ technology.name }} 
                 </span>

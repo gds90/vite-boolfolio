@@ -18,7 +18,6 @@ export default {
                 if (response.data.success) {
                     this.project = response.data.project;
                     this.success = response.data.success;
-                    console.log(this.project)
                 }
                 else {
                     this.$router.push({ name: 'not-found' })
@@ -63,7 +62,7 @@ export default {
                         <p class="  "><strong>Link:</strong> {{project.link}}</p>
                     </div>
                 </div>
-                <div class="home-menu text-center">
+                <div class="text-center">
                     <!-- Router link a lista Progetti -->
                     <router-link to="/projects" class="btn btn-lg btn-outline-secondary text-uppercase m-4">Torna alla lista dei progetti</router-link>
                 </div>

@@ -3,7 +3,7 @@ import { store } from '../store.js';
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
 export default {
-    name: 'ProjectsList',
+    name: 'TechnologyProjects',
     components: {
         ProjectCard
     },
@@ -22,14 +22,19 @@ export default {
     },
     methods: {
         getProjects(page_num) {
-            axios.get(`${this.store.baseUrl}/api/projects`, {
+            axios.get(`${this.store.baseUrl}/api/projects/technology/${this.$route.params.slug}`, {
                 params: {
                     page: page_num
                 }
             }).then((response) => {
-                this.projects = response.data.results.data;
-                this.currentPage = response.data.results.current_page;
-                this.lastPage = response.data.results.last_page;
+                if (response.data.success) {
+                    this.projects = response.data.results.data;
+                    this.currentPage = response.data.results.current_page;
+                    this.lastPage = response.data.results.last_page;
+                }
+                else {
+                    this.$router.push({ name: 'not-found' })
+                }
             })
         },
         getTechnologies() {
@@ -38,8 +43,14 @@ export default {
                     this.technologies = response.data.results;
                 })
         },
-        getBadgeColor(technology) {
-            return technology.badge_color;
+        getTechnologyTitleBySlug(slug) {
+            let title = '';
+            this.technologies.forEach(technology => {
+                if (technology.slug === slug) {
+                    title = technology.name;
+                }
+            });
+            return title;
         }
     },
 }
@@ -47,18 +58,8 @@ export default {
 <template lang="">
     <main class="pt-4">
         <div class="container-fluid mt-5 bg-body-secondary p-5">
-            <h1 class="text-center text-uppercase ">Tutti i progetti</h1>
+            <h1 class="text-center text-uppercase ">Progetti per Tecnologia {{getTechnologyTitleBySlug($route.params.slug)}}</h1>
             <h6 class="text-center text-secondary ">(clicca su un progetto per mostrare i dettagli)</h6>
-            <div class="row">
-                <div class="col-12 mt-4">
-                    Mostra progetti per tecnologia: 
-                    <router-link :to="{name:'technology-projects', params: {slug: technology.slug}}" v-for="(technology, index) in technologies" :key="index" :class="'badge rounded-pill text-bg-' + getBadgeColor(technology)" class="text-decoration-none ms-1">
-                        <span>
-                            {{ technology.name }} 
-                        </span>
-                    </router-link>
-                </div>
-            </div>
             <div class="row mt-3">
                 <ProjectCard v-for="project, index in projects" :key="index" :project="project"/>
             </div>
@@ -78,8 +79,11 @@ export default {
                     </ul>
                 </div>
             </div>
+            <div class="text-center">
+                <!-- Router link a lista Progetti -->
+                <router-link to="/projects" class="btn btn-lg btn-outline-secondary text-uppercase m-4">Torna alla lista dei progetti</router-link>
+            </div>
         </div>
-        
     </main>
 </template>
 <style lang="">
