@@ -37,6 +37,8 @@ export default {
     <main class="pt-4">
         <div class="container-fluid mt-5 bg-body-secondary p-5">
             <h1 class="text-center text-uppercase ">Tutti i progetti</h1>
+            <h6 class="text-center text-secondary ">(clicca su un progetto per mostrare i dettagli)</h6>
+
             <!-- <div class="row">
                 <div class="col-12 my-3">
                     FILTRI TECNOLOGIE

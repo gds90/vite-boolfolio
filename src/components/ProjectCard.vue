@@ -29,12 +29,11 @@ export default {
 </script>
 <template lang="">
 <div class="col-md-6 col-lg-4 col-xxl-3 my-4 mx-auto">
+    <router-link :to="{name:'single-project', params:{slug:project.slug}}" class="text-decoration-none">
     <div class="card shadow h-100 ">
         <img class="rounded-top-1":src="getUrlImage()">
         <div class="card-body ">
             <h5 class="card-title text-center my-2">{{project.title}}</h5>
-            <p class="card-text "><strong>Descrizione:</strong> {{project.description.substr(0,40)+"..."}}</p>
-            <p class="card-text "><strong>Link:</strong> {{project.link.substr(0,30)}}</p>
             <p class="card-text "><strong>Tipologia:</strong> {{project.type ? project.type.name : 'non specificato'}}</p>
             <p class="card-text"><strong>Tecnologie:</strong>
                 <span v-for="(technology, index) in project.technology" :key="index" :class="'badge rounded-pill text-bg-' + getBadgeColor(technology)" class="ms-1">
@@ -43,12 +42,17 @@ export default {
             </p>
         </div>
     </div>
+    </router-link>
 </div>
 </template>
 <style lang="scss">
 @use 'src/style/general.scss';
 
 .card {
+    &:hover {
+        transform: scale(1.05);
+        transition: all 0.5s;
+    }
 
     img {
         object-fit: cover;
