@@ -34,9 +34,14 @@ export default {
 }
 </script>
 <template lang="">
-    <main>
-        <h1 class="text-center text-uppercase ">Ultimi progetti</h1>
-        <div class="container-fluid my-3 bg-body-secondary p-4">
+    <main class="pt-4">
+        <div class="container-fluid mt-5 bg-body-secondary p-5">
+            <h1 class="text-center text-uppercase ">Tutti i progetti</h1>
+            <!-- <div class="row">
+                <div class="col-12 my-3">
+                    FILTRI TECNOLOGIE
+                </div>
+            </div> -->
             <div class="row mt-3">
                 <ProjectCard v-for="project, index in projects" :key="index" :project="project"/>
             </div>
