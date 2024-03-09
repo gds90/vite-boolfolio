@@ -2,10 +2,12 @@
 import { store } from '../store.js';
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
+import AppLoader from '../components/AppLoader.vue'
 export default {
     name: 'TechnologyProjects',
     components: {
-        ProjectCard
+        ProjectCard,
+        AppLoader
     },
     data() {
         return {
@@ -13,7 +15,8 @@ export default {
             projects: [],
             technologies: [],
             currentPage: 1,
-            lastPage: null
+            lastPage: null,
+            success: false
         }
     },
     created() {
@@ -27,14 +30,18 @@ export default {
                     page: page_num
                 }
             }).then((response) => {
-                if (response.data.success) {
-                    this.projects = response.data.results.data;
-                    this.currentPage = response.data.results.current_page;
-                    this.lastPage = response.data.results.last_page;
-                }
-                else {
-                    this.$router.push({ name: 'not-found' })
-                }
+                setTimeout(() => {
+                    if (response.data.success) {
+                        this.projects = response.data.results.data;
+                        this.currentPage = response.data.results.current_page;
+                        this.lastPage = response.data.results.last_page;
+                        this.success = response.data.success;
+                    }
+                    else {
+                        this.$router.push({ name: 'not-found' })
+                    }
+                }, 1000);
+                this.success = false
             })
         },
         getTechnologies() {
@@ -57,8 +64,11 @@ export default {
 </script>
 <template lang="">
     <main class="pt-4">
+        <div v-if="!success" class="centered-loader">
+            <AppLoader />
+        </div>
         <!-- Content -->
-        <div class="container-fluid mt-5 bg-body-secondary p-5">
+        <div v-else class="container-fluid mt-5 bg-body-secondary p-5">
             <h6 class="text-center ">Progetti per la tecnologia</h6>
             <h1 class="text-center text-uppercase ">{{getTechnologyTitleBySlug($route.params.slug)}}</h1>
             <h6 class="text-center text-secondary ">(clicca su un progetto per mostrare i dettagli)</h6>

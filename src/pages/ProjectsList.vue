@@ -2,10 +2,12 @@
 import { store } from '../store.js';
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
+import AppLoader from '../components/AppLoader.vue';
 export default {
     name: 'ProjectsList',
     components: {
-        ProjectCard
+        ProjectCard,
+        AppLoader
     },
     data() {
         return {
@@ -13,7 +15,8 @@ export default {
             projects: [],
             technologies: [],
             currentPage: 1,
-            lastPage: null
+            lastPage: null,
+            success: false
         }
     },
     created() {
@@ -27,9 +30,14 @@ export default {
                     page: page_num
                 }
             }).then((response) => {
+                setTimeout(() => {
                 this.projects = response.data.results.data;
                 this.currentPage = response.data.results.current_page;
                 this.lastPage = response.data.results.last_page;
+                this.success = response.data.success;
+                }, 1000);
+                this.success = false
+                
             })
         },
         getTechnologies() {
@@ -46,8 +54,11 @@ export default {
 </script>
 <template lang="">
     <main class="pt-4">
+        <div v-if="!success" class="centered-loader">
+            <AppLoader />
+        </div>
         <!-- Content  -->
-        <div class="container-fluid mt-5 bg-body-secondary p-5">
+        <div v-else class="container-fluid mt-5 bg-body-secondary p-5">
             <h1 class="text-center text-uppercase ">Tutti i progetti</h1>
             <h6 class="text-center text-secondary ">(clicca su un progetto per mostrare i dettagli)</h6>
             <div class="row">
@@ -86,6 +97,12 @@ export default {
         
     </main>
 </template>
-<style lang="">
-    
+<style lang="scss">
+.centered-loader { 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgb(234,236,239);
+    display:flex; 
+    justify-content: center; 
+    align-items:center}
 </style>

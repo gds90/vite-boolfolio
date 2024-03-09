@@ -1,13 +1,17 @@
 <script>
 import axios from 'axios';
 import { store } from '../store';
+import AppLoader from '../components/AppLoader.vue';
 export default {
     name: 'SingleProject',
+    components: {
+        AppLoader
+    },
     data() {
         return {
             store,
             project: null,
-            success: null
+            success: false
         }
     },
     created() {
@@ -16,13 +20,16 @@ export default {
     methods: {
         getProjectData() {
             axios.get(`${this.store.baseUrl}/api/projects/${this.$route.params.slug}`).then((response) => {
-                if (response.data.success) {
-                    this.project = response.data.project;
-                    this.success = response.data.success;
-                }
-                else {
-                    this.$router.push({ name: 'not-found' })
-                }
+                setTimeout(() => {
+                    if (response.data.success) {
+                        this.project = response.data.project;
+                        this.success = response.data.success;
+                    }
+                    else {
+                        this.$router.push({ name: 'not-found' })
+                    }
+                }, 1000);
+                this.success = false
             });
         },
         getUrlImage() {
@@ -43,8 +50,11 @@ export default {
 </script>
 <template lang="">
     <main class="pt-4">
+        <div v-if="!success" class="centered-loader">
+            <AppLoader />
+        </div>
         <!-- Project details -->
-        <div class="container-fluid mt-5 bg-body-secondary p-5">
+        <div v-else class="container-fluid mt-5 bg-body-secondary p-5">
             <div class="row" v-if="success == true">
                 <!-- Title -->
                 <div class="col-12">
