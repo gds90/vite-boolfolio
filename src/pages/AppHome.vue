@@ -1,6 +1,6 @@
 <script>
 export default {
-
+  name: 'AppHome'
 }
 </script>
 <template lang="">
@@ -24,8 +24,8 @@ export default {
                   <div class="col-lg-8 col-md-12">
                       <img src="/img/team.jpg" alt="Team" class="w-100 rounded-3 shadow ">
                   </div>
-                  <div class="col-lg-4 col-md-12 pt-5">
-                      <h2 class="text-secondary"><strong>Massimizza l'efficienza del tuo team con il nuovo gestionale per
+                  <div class="col-lg-4 col-md-12 pt-3">
+                      <h2 class=""><strong>Massimizza l'efficienza del tuo team con il nuovo gestionale per
                               progetti
                               informatici</strong></h2>
                       <p class="fs-5">Ottimizza la pianificazione, la collaborazione e il monitoraggio dei progetti
@@ -37,7 +37,7 @@ export default {
               </div>
               <div class="row mt-5">
                   <div class="col-lg-4 col-md-12 pt-5">
-                      <h2 class="text-secondary"><strong>Trasforma la tua visione in realizzazione con il nostro gestionale per
+                      <h2 class=""><strong>Trasforma la tua visione in realizzazione con il nostro gestionale per
                               progetti
                               informatici</strong></h2>
                       <p class="fs-5">Dall'ideazione alla consegna, il nostro gestionale per progetti informatici ti offre
@@ -48,6 +48,14 @@ export default {
                   </div>
                   <div class="col-lg-8 col-md-12">
                       <img src="/img/developer.jpg" alt="Developer" class="w-100 rounded-3 shadow">
+                  </div>
+              </div>
+              <div class="row mt-5">
+                  <div class="col-12 text-center mt-5">
+                    <div class="subscription">
+                      <h2>Tanti servizi, in un unica soluzione.</h2>
+                      <button class="btn btn-sm btn-outline-secondary m-4">Scopri i nostri abbonamenti</button>
+                    </div>
                   </div>
               </div>
           </div>

@@ -29,9 +29,9 @@ export default {
 </script>
 <template lang="">
 <div class="col-md-6 col-lg-4 col-xxl-3 my-4 mx-auto">
-    <router-link :to="{name:'single-project', params:{slug:project.slug}}" class="text-decoration-none">
+    <router-link :to="{ name:'single-project', params:{ slug: project.slug }}" class="text-decoration-none">
     <div class="card shadow h-100 ">
-        <img class="rounded-top-1":src="getUrlImage()">
+        <img class="rounded-top-1" :src="getUrlImage()">
         <div class="card-body ">
             <!-- Title -->
             <h5 class="card-title text-center my-2">{{project.title}}</h5>

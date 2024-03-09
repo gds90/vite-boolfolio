@@ -6,7 +6,8 @@ export default {
     data() {
         return {
             store,
-            project: null
+            project: null,
+            success: null
         }
     },
     created() {
@@ -44,7 +45,7 @@ export default {
     <main class="pt-4">
         <!-- Project details -->
         <div class="container-fluid mt-5 bg-body-secondary p-5">
-            <div class="row">
+            <div class="row" v-if="success == true">
                 <!-- Title -->
                 <div class="col-12">
                     <h1 class="text-center text-uppercase ">{{project.title}}</h1>
