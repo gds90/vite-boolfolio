@@ -33,3 +33,9 @@ Continuate a lavorare sulla repo dei giorni scorsi e realizzate la pagina di det
 Bonus:
 Creare una pagina in cui mostrare le i progetti appartenenti ad una singola categoria.
 Buon lavoro
+
+08/03/24:
+Ciao a tutti, oggi continuate con l'esercizio Boolfolio implementando una form per inviare una mail. Seguite i passaggi visti a lezione.
+Bonus: gestite gli errori ed i relativi messaggi se l'utente sbaglia ad inserire valori nei campi
+SUPER BONUS: creare una Thank You page alla quale essere reindirizzati se la mail viene inviata con successo.
+Buon lavoro!
