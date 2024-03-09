@@ -5,6 +5,7 @@ import AppNotFound from './pages/AppNotFound.vue';
 import ProjectsList from './pages/ProjectsList.vue';
 import SingleProject from './pages/SingleProject.vue';
 import TechnologyProjects from './pages/TechnologyProjects.vue';
+import AppContactUs from './pages/AppContactUs.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -28,6 +29,11 @@ const router = createRouter({
             path: '/technology/:slug',
             name: 'technology-projects',
             component: TechnologyProjects
+        },
+        {
+            path: '/contacts',
+            name: 'contacts',
+            component: AppContactUs
         },
         {
             path: '/:pathMatch(.*)*',
