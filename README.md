@@ -4,10 +4,9 @@ Vite Boolfolio è un'applicazione web sviluppata utilizzando Vite.js per la crea
 
 ## Tecnologie Utilizzate
 
-- Vite.js
+- Vite
 - Vue.js
 - CSS
-- API di criptovalute (es. CoinGecko)
 
 ## Struttura dei File
 
